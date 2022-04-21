@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using Frazeo.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace Frazeo.Bot
     internal class FrazeoBot : IBot
     {
         private readonly DiscordSocketClient _client;
+        private readonly IDatabase _db;
 
-        public FrazeoBot()
+        public FrazeoBot(IDatabase db)
         {
             _client = new DiscordSocketClient();
+            _db = db;
         }
 
         public async Task Start(string token)

@@ -26,6 +26,7 @@ namespace Frazeo
         {
             return new ServiceCollection()
                 .AddSingleton<IBot, FrazeoBot>()
+                .AddSingleton<IDatabase>(ctx => new MongoDatabase("mongodb://localhost"))
                 .BuildServiceProvider();
         }
 
