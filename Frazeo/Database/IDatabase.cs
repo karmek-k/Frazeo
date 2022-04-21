@@ -8,6 +8,5 @@ namespace Frazeo.Database
 {
     internal interface IDatabase
     {
-        void Connect(string connectionString);
     }
 }

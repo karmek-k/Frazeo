@@ -9,14 +9,9 @@ namespace Frazeo.Database
 {
     internal class MongoDatabase : IDatabase
     {
-        private MongoClient? _client;
+        private MongoClient _client;
 
-        public MongoDatabase()
-        {
-            _client = null;
-        }
-
-        public void Connect(string connectionString)
+        public MongoDatabase(string connectionString)
         {
             _client = new MongoClient(connectionString);
         }
