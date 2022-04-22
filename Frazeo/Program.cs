@@ -1,5 +1,7 @@
 ﻿using Frazeo.Bot;
 using Frazeo.Database;
+using Frazeo.Database.Models;
+using Frazeo.Database.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Frazeo
@@ -27,6 +29,7 @@ namespace Frazeo
             return new ServiceCollection()
                 .AddSingleton<IBot, FrazeoBot>()
                 .AddSingleton<IDatabase>(ctx => new MongoDatabase("mongodb://localhost"))
+                .AddScoped<IRepository<Phrase>, PhraseRepository>()
                 .BuildServiceProvider();
         }
 
