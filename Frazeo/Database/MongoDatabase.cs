@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Frazeo.Database.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace Frazeo.Database
         public MongoDatabase(string connectionString)
         {
             _client = new MongoClient(connectionString);
+        }
+
+        public MongoClient GetClient()
+        {
+            return _client;
         }
     }
 }
